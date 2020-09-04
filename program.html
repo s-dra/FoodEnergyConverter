@@ -1,0 +1,128 @@
+<div id="mainProgramDiv">
+<!--CSS-->
+    <style>
+        #FoodEnergyConverterDiv{
+            border: 1px solid #e4e4e4; 
+		    border-radius: 5px;
+		    background-color: white;
+		    font-family : 'Open Sans', Helvetica, Arial, sans-serif; 
+		    box-shadow : 1px 2px #f2f2f2;
+            height:210px;
+            padding-left:10px;
+        }
+
+        #FoodEnergyConverterDiv #kcalInputDiv, 
+        #FoodEnergyConverterDiv #toDiv, 
+        #FoodEnergyConverterDiv #kjouleDiv{
+            padding-bottom:15px;
+        }
+        
+        #FoodEnergyConverterDiv #toDiv{
+            padding-left:5px;
+        }
+
+
+        #FoodEnergyConverterDiv #kcalInput,
+        #FoodEnergyConverterDiv #kjouleInput {
+            width:150px;
+		    height:30px;
+		    text-align:right;
+		    margin-left:3px;
+		    padding-right:30px;
+		    cursor:pointer;
+		    border: 1px solid #aaaaaa;
+		    border-radius:5px;
+
+        }
+
+        #FoodEnergyConverterDiv #kcalInput::-webkit-outer-spin-button,
+        #FoodEnergyConverterDiv #kcalInput::-webkit-inner-spin-button,
+        #FoodEnergyConverterDiv #kjouleInput::-webkit-outer-spin-button,
+        #FoodEnergyConverterDiv #kjouleInput::-webkit-inner-spin-button{
+
+            -webkit-appearance: none;
+  		    margin: 0;
+        }
+
+        #FoodEnergyConverterDiv #kcalInput[type=number],
+        #FoodEnergyConverterDiv #kjouleInput[type=number]{
+            -moz-appearance: textfield;
+        }
+
+        #kcalInput:hover, #kjouleInput:hover{
+            box-shadow: 1px 1px #949494;
+        }
+
+        #kcalInput:focus, #kjouleInput:focus{
+
+            outline: none ;
+		    border-color: #2c2c2c ;
+        }
+
+        #FoodEnergyConverterDiv #sdraPowerDiv{
+		font-size: 10px;
+		padding:5px;
+	    }
+    </style>
+<!--HTML-->
+
+    <div id="FoodEnergyConverterDiv">
+        <div>
+            <h3>Food Energy Converter</h3>
+        </div>
+        <div id="kcalInputDiv">
+            <input type="number" id="kcalInput" value="1.000"/><span style="margin-left:-28px;font-size:12px;">kcal</span>
+        </div>
+        <div id="toDiv">
+            is equal to
+        </div>
+        <div id="kjouleDiv">
+            <input type="number" id="kjouleInput" value="4.184"/><span style="margin-left:-20px;font-size:12px;">kJ</span>
+        </div>
+        
+        <div id="sdraPowerDiv">
+            Powered by <a href="https://s-dra.com/">S-DRA</a>
+        </div>
+
+    </div>
+
+<!--Scripts-->
+    <script>
+        var kcal = document.getElementById("kcalInput");
+        var kj = document.getElementById("kjouleInput");
+
+        //Kcal Onchange 
+        kcal.onchange = function(){
+
+            //Change the value of kj 
+            kj.value = (parseFloat(this.value)*4.184).toFixed(3);
+            
+
+        }
+
+        kcal.onkeyup = function(){
+
+            //Change the value of kj 
+            kj.value = (parseFloat(this.value)*4.184).toFixed(3);
+
+
+        }
+
+
+        //Kj OnChange 
+        kj.onchange = function(){
+
+            //Change the value of kcal
+            kcal.value = (parseFloat(this.value)/4.184).toFixed(3);
+        }
+
+        kj.onkeyup = function(){
+
+            //Change the value of kcal
+            kcal.value = (parseFloat(this.value)/4.184).toFixed(3);
+        }
+
+
+    </script>
+
+</div>
